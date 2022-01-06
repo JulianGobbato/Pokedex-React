@@ -6,8 +6,8 @@
     padding: 10px;
 }
 .pokedex-grid{
-    display: flex;
-    grid-auto-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     padding: 0px 10px;
 }
