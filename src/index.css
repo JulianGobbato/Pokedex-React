@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "PokemonClassic";
+  src: url('../public/PokemonClassic.ttf');
+}
+
 *{
   margin: 0px;
+  font-family: 'PokemonClassic';
 }
 
 
