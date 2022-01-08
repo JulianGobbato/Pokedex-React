@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Pokedex from './components/Pokedex';
 import Searchbar from './components/Searchbar';
 import {getPokemons, getPokemonData} from './api'
+import { FavoriteProvider } from './context/favoritesContext';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
   const [page, setPage] = useState(0)
   const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [favorites, setFavorites] = useState([])
 
   const fetchPokemons = async () =>{
     setLoading(true)
@@ -31,7 +33,23 @@ function App() {
     fetchPokemons()
   }, [page])
 
+  const updateFavoritePokemons = (name) =>{
+    const updated = [...favorites]
+    const isFavorite = favorites.indexOf(name)
+    if (isFavorite >= 0) {
+      updated.splice(isFavorite, 1)
+    } else {
+      updated.push(name)
+    }
+    setFavorites(updated)
+  }
+
   return (
+    <FavoriteProvider value={
+      {favoritePokemons: favorites, 
+      updateFavoritePokemons: updateFavoritePokemons}
+    }
+    >
     <div >
       <Navbar/>
       <Searchbar/>
@@ -43,6 +61,7 @@ function App() {
         loading={loading}
       />
     </div>
+    </FavoriteProvider>
   );
 }
 
