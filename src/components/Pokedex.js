@@ -20,12 +20,16 @@ const Pokedex = (props) =>{
         <div>
             <div className="header">
                 <h1>Pokedex</h1>
-                <Pagination
-                page = {page+1}
-                totalPages = {150}
-                onLeftClick={lastPage}
-                onRightClick={nextPage}
-                />
+                { loading ? 
+                    <div></div>
+                    :
+                    <Pagination
+                    page = {page+1}
+                    totalPages = {total}
+                    onLeftClick={lastPage}
+                    onRightClick={nextPage}
+                    />
+                }
             </div>
             { loading ?
                 <div> Cargando pokemones </div>
