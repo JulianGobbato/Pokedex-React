@@ -5,13 +5,15 @@ import Pagination from "./Pagination";
 
 const Pokedex = (props) =>{
     
-    const {pokemons, page, setPage, total, loading} = props
+    const {pokemons, page, setPage, total, loading, setSwitchingPage, switchingPage} = props
 
     const lastPage = () =>{
+        setSwitchingPage(true)
         const lastPage = Math.max(page - 1, 0)
         setPage(lastPage)
     }
     const nextPage = () =>{
+        setSwitchingPage(true)
         const nextPage = Math.min(page + 1, total)
         setPage(nextPage)
     }
@@ -20,7 +22,7 @@ const Pokedex = (props) =>{
         <div>
             <div className="header">
                 <h1>Pokedex</h1>
-                { loading ? 
+                { loading && !switchingPage ? 
                     <div></div>
                     :
                     <Pagination
@@ -35,7 +37,7 @@ const Pokedex = (props) =>{
                 <div> Cargando pokemones </div>
                 :
                 <div className="pokedex-grid">
-                    {pokemons.map((pokemon, idx) => {
+                    {pokemons.map((pokemon) => {
                         return(
                             <Pokemon pokemon ={pokemon} key={pokemon.name}/>
                         )

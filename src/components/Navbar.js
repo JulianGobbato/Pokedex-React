@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import { Link } from 'react-router-dom';
 import FavoriteContext from '../context/favoritesContext'
 import  '../style/Navbar.css'
 
@@ -11,12 +12,16 @@ const Navbar = () =>{
     return(
         <nav>
             <div/>
+            <Link to={"/"}>
             <div>
                 <img src={logoUrl} alt='pokeapi-logo' className='navbar-img'/>
             </div>
+            </Link>
+            <Link to={"favorites"}>
             <div>
                 ❤️{favoritePokemons.length}
             </div>
+            </Link>
         </nav>
     )
 }

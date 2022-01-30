@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import FavoriteContext from '../context/favoritesContext'
+import { Link } from 'react-router-dom';
 import '../style/Pokemon.css'
 
 const Pokemon = (props) =>{
@@ -17,21 +18,25 @@ const Pokemon = (props) =>{
     return(
         <div className='pokemon-card'>
             <div className='pokemon-img-container'>
-                <img 
-                src={pokemon.sprites.front_default}
-                alt={pokemon.name}
-                className='pokemon-img'
-                /> 
+                <Link to={`/${pokemon.name}`}>
+                    <img 
+                    src={pokemon.sprites.front_default}
+                    alt={pokemon.name}
+                    className='pokemon-img'
+                    />
+                </Link>
             </div>
             <div className='card-body'>
                 <div className='card-top'>
-                    <h3>{pokemon.name}</h3>
+                    <Link to={`/${pokemon.name}`}>
+                        <h3>{pokemon.name}</h3>
+                    </Link>
                     <div>#{pokemon.id}</div>
                 </div>
                 <div className='card-bottom'>
                     <div className='pokemon-type'>
                         {pokemon.types.map((type, idx) => {
-                            return <div key={idx} className='pokemon-type-text'>{type.type.name}</div>
+                            return <div key={idx} className={type.type.name}><div className='pokemon-type-text'>{type.type.name}</div></div>
                         })}
                     </div>
                     <button onClick={clickHeart}><div className='pokemon-favorite'>{heart}</div></button>
