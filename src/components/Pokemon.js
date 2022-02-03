@@ -36,7 +36,7 @@ const Pokemon = (props) =>{
                 <div className='card-bottom'>
                     <div className='pokemon-type'>
                         {pokemon.types.map((type, idx) => {
-                            return <div key={idx} className={type.type.name}><div className='pokemon-type-text'>{type.type.name}</div></div>
+                            return <div key={idx} className='pokemon-type-text'><div className={type.type.name}>{type.type.name}</div></div>
                         })}
                     </div>
                     <button onClick={clickHeart}><div className='pokemon-favorite'>{heart}</div></button>

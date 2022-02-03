@@ -1,0 +1,62 @@
+.pokemon-name{
+    text-align: center;
+    text-transform: capitalize;
+}
+.data-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.top-cointaner{
+    display: flex;
+    justify-content: center;
+}
+.container-right{
+    text-align: center;
+}
+.attribure-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    list-style-type: none;
+}
+li{
+    display: grid;
+    text-transform: capitalize;
+}
+.mid-container{
+    display: flex;
+    justify-content: center;
+}
+.type-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform: capitalize;
+    text-align: center;
+}
+.type-main{
+    display: inline-flex;
+    justify-content: center;
+}
+.type-weak{
+    display: inline-flex;
+    justify-content: center;
+}
+.stat-bar{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background-color: #ddd;
+}
+.stat-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.stat-name{
+    text-align: end;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+.stat-value{
+    margin-left: 10px;
+}

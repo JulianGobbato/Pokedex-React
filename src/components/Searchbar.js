@@ -15,12 +15,15 @@ const Searchbar = (props) =>{
     }
     const onClick = async () => { 
         onSearch(search)
+        const input = document.getElementsByClassName('searchbar-input')
+        input[0].value = ""
     }
 
     return(
         <div className='searchbar-container'>
             <div className='searchbar'>
                 <input 
+                className='searchbar-input'
                 placeholder='Buscar Pokemon'
                 onChange={onChange}
                 />
