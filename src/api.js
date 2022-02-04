@@ -1,5 +1,7 @@
 export const searchPokemon = async (pokemon) =>{
-    pokemon = pokemon.toLowerCase()
+    if (typeof(pokemon) !== "number"){
+        pokemon = pokemon.toLowerCase()
+    }
     try {
         let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
         const response = await fetch(url)
